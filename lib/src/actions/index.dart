@@ -3,3 +3,4 @@ import '../models/index.dart';
 
 part 'index.freezed.dart';
 part 'get_images.dart';
+part 'set.dart';

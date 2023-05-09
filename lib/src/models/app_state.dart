@@ -8,6 +8,7 @@ class AppState with _$AppState {
     @Default(false) bool isLoading,
     @Default(true) bool hasMore,
     @Default('water') String searchText,
+    String? selectedPictureId,
   }) = AppState$;
 
   factory AppState.fromJson(Map<dynamic, dynamic> json) => _$AppStateFromJson(Map<String, dynamic>.from(json));

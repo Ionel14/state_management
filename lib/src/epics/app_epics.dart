@@ -1,4 +1,5 @@
 import 'package:redux_epics/redux_epics.dart';
+import 'package:rxdart/rxdart.dart';
 
 import '../actions/index.dart';
 import '../data/unsplash_api.dart';
@@ -16,19 +17,14 @@ class AppEpics implements EpicClass<AppState> {
     ])(actions, store);
   }
 
-  Stream<GetImages> _getImagesStart(Stream<GetImagesStart> actions, EpicStore<AppState> store) {
-    // return actions
-    //         .asyncMap((GetImagesStart action) => _api.getPictures(action.page, action.searchText))
-    //         .map((List<Picture> images) => GetImages.successful(images))
-    //     .onErrorReturnWith((Object error, StackTrace stackTrace) => GetImages.error(error, stackTrace));
-
-    return actions.asyncMap<GetImages>((GetImagesStart action) async {
-      try {
-        final List<Picture> images = await _api.getPictures(action.page, action.searchText);
-        return GetImages.successfull(images);
-      } catch (error, stackTrace) {
-        return GetImages.error(error, stackTrace);
-      }
-    });
+  Stream<dynamic> _getImagesStart(Stream<GetImagesStart> actions, EpicStore<AppState> store) {
+    return actions
+        .debounceTime(const Duration(milliseconds: 500))
+        .switchMap((GetImagesStart action) {
+        return Stream<void>.value(null)
+            .asyncMap((_) => _api.getPictures(action.page, action.searchText))
+            .map((List<Picture> images) => GetImages.successfull(images))
+            .onErrorReturnWith((Object error, StackTrace stackTrace) => GetImages.error(error, stackTrace));
+      });
   }
 }
