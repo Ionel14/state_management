@@ -1,6 +1,3 @@
-
-import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -8,22 +5,21 @@ import '../models/index.dart';
 import 'containers/index.dart';
 
 class PictureDetails extends StatelessWidget {
-  const PictureDetails({Key? key}) : super(key: key);
+  const PictureDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SelectedPictureContainer(
-        builder: (BuildContext context, Picture picture) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text(picture.user.name),
-            ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                CachedNetworkImage(
-                    imageUrl: picture.urls.full,
-                ),
+    return SelectedPictureContainer(builder: (BuildContext context, Picture picture) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(picture.user.name),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              CachedNetworkImage(
+                imageUrl: picture.urls.full,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -32,7 +28,6 @@ class PictureDetails extends StatelessWidget {
                       child: CachedNetworkImage(
                         imageUrl: picture.user.profileImage.large,
                         fit: BoxFit.fill,
-
                       ),
                     ),
                     Expanded(
@@ -42,7 +37,7 @@ class PictureDetails extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: <Text>[
                             Text(
                               'Likes: ${picture.likes}',
                               style: const TextStyle(fontSize: 20),
@@ -62,11 +57,10 @@ class PictureDetails extends StatelessWidget {
                   ],
                 ),
               )
-              ],
-            ),
+            ],
           ),
-          );
-      }
-    );
+        ),
+      );
+    });
   }
 }

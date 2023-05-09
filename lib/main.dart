@@ -37,10 +37,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-
         routes: <String, WidgetBuilder>{
-          '/' : (BuildContext context) => const MyHomePage(),
-          '/details' : (BuildContext context) => const PictureDetails(),
+          '/': (BuildContext context) => const MyHomePage(),
+          '/details': (BuildContext context) => const PictureDetails(),
         },
       ),
     );

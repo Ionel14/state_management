@@ -1,7 +1,7 @@
 part of 'index.dart';
 
 class SelectedPictureContainer extends StatelessWidget {
-  const SelectedPictureContainer({Key? key, required this.builder}) : super(key: key);
+  const SelectedPictureContainer({super.key, required this.builder});
 
   final ViewModelBuilder<Picture> builder;
 
@@ -10,8 +10,7 @@ class SelectedPictureContainer extends StatelessWidget {
     return StoreConnector<AppState, Picture>(
         builder: builder,
         converter: (Store<AppState> store) {
-          return store.state.images.firstWhere((element) => element.id == store.state.selectedPictureId);
-        }
-    );
+          return store.state.images.firstWhere((Picture element) => element.id == store.state.selectedPictureId);
+        });
   }
 }

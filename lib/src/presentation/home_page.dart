@@ -1,5 +1,3 @@
-
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -85,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         final Picture picture = images[index];
 
                         return GestureDetector(
-                          onTap: (){
+                          onTap: () {
                             StoreProvider.of<AppState>(context).dispatch(SetSelectedImage(picture.id));
                             Navigator.pushNamed(context, '/details');
                           },
@@ -106,9 +104,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                           begin: AlignmentDirectional.bottomStart,
                                           end: Alignment.topRight,
                                           colors: <Color>[
-                                            Colors.white54,
-                                            Colors.transparent,
-                                          ])),
+                                        Colors.white54,
+                                        Colors.transparent,
+                                      ])),
                                   child: ListTile(
                                     title: Text(picture.user.username),
                                     trailing: CircleAvatar(

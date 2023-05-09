@@ -17,8 +17,7 @@ _$Picture$ _$$Picture$FromJson(Map<String, dynamic> json) => _$Picture$(
       user: User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$Picture$ToJson(_$Picture$ instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$Picture$ToJson(_$Picture$ instance) => <String, dynamic>{
       'id': instance.id,
       'created_at': instance.createdAt.toIso8601String(),
       'width': instance.width,
@@ -54,8 +53,7 @@ _$User$ _$$User$FromJson(Map<String, dynamic> json) => _$User$(
       portfolioUrl: json['portfolio_url'] as String?,
       bio: json['bio'] as String?,
       location: json['location'] as String?,
-      profileImage:
-          ProfileImage.fromJson(json['profile_image'] as Map<String, dynamic>),
+      profileImage: ProfileImage.fromJson(json['profile_image'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$User$ToJson(_$User$ instance) => <String, dynamic>{
@@ -72,24 +70,20 @@ Map<String, dynamic> _$$User$ToJson(_$User$ instance) => <String, dynamic>{
       'profile_image': instance.profileImage,
     };
 
-_$ProfileImage$ _$$ProfileImage$FromJson(Map<String, dynamic> json) =>
-    _$ProfileImage$(
+_$ProfileImage$ _$$ProfileImage$FromJson(Map<String, dynamic> json) => _$ProfileImage$(
       small: json['small'] as String,
       medium: json['medium'] as String,
       large: json['large'] as String,
     );
 
-Map<String, dynamic> _$$ProfileImage$ToJson(_$ProfileImage$ instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$ProfileImage$ToJson(_$ProfileImage$ instance) => <String, dynamic>{
       'small': instance.small,
       'medium': instance.medium,
       'large': instance.large,
     };
 
 _$AppState$ _$$AppState$FromJson(Map<String, dynamic> json) => _$AppState$(
-      images: (json['images'] as List<dynamic>?)
-              ?.map((e) => Picture.fromJson(e as Map<String, dynamic>))
-              .toList() ??
+      images: (json['images'] as List<dynamic>?)?.map((e) => Picture.fromJson(e as Map<String, dynamic>)).toList() ??
           const <Picture>[],
       page: json['page'] as int? ?? 1,
       isLoading: json['isLoading'] as bool? ?? false,
@@ -98,8 +92,7 @@ _$AppState$ _$$AppState$FromJson(Map<String, dynamic> json) => _$AppState$(
       selectedPictureId: json['selectedPictureId'] as String?,
     );
 
-Map<String, dynamic> _$$AppState$ToJson(_$AppState$ instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$AppState$ToJson(_$AppState$ instance) => <String, dynamic>{
       'images': instance.images,
       'page': instance.page,
       'isLoading': instance.isLoading,
