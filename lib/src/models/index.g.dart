@@ -83,7 +83,9 @@ Map<String, dynamic> _$$ProfileImage$ToJson(_$ProfileImage$ instance) => <String
     };
 
 _$AppState$ _$$AppState$FromJson(Map<String, dynamic> json) => _$AppState$(
-      images: (json['images'] as List<dynamic>?)?.map((e) => Picture.fromJson(e as Map<String, dynamic>)).toList() ??
+      images: (json['images'] as List<dynamic>?)
+              ?.map((dynamic e) => Picture.fromJson(e as Map<String, dynamic>))
+              .toList() ??
           const <Picture>[],
       page: json['page'] as int? ?? 1,
       isLoading: json['isLoading'] as bool? ?? false,
