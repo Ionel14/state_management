@@ -32,8 +32,3 @@ class UnsplashApi {
     throw StateError(response.body);
   }
 }
-
-// Future<void> main() async {
-//   final test = UnsplashApi("TWH9m2FHZ67eO3jM8JiBEpDwjMRARj5UkpYr6EzVziM");
-//   print(await test.getPictures(1, "cars"));
-// }
