@@ -1,4 +1,4 @@
-name: Make sure my all is nice
+name: Make sure my code is nice
 on:
   push:
 
@@ -9,11 +9,13 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
 
-      - name: Install flutter
+      - name: Install Flutter
         uses: subosito/flutter-action@v2
 
       - name: Check format
         run: dart format --line-length 120 --set-exit-if-changed ./lib
 
       - name: Analyze code
-        run: flutter analyze
+        run: |
+          flutter config --no-analytics
+          flutter analyze
