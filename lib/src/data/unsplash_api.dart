@@ -26,10 +26,7 @@ class UnsplashApi {
       final Map<String, dynamic> map = jsonDecode(response.body) as Map<String, dynamic>;
       final List<dynamic> results = map['results'] as List<dynamic>;
 
-      return results
-          .cast<Map<dynamic, dynamic>>()
-          .map((Map<dynamic, dynamic> json) => Picture.fromJson(json))
-          .toList();
+      return results.cast<Map<dynamic, dynamic>>().map((Map<dynamic, dynamic> json) => Picture.fromJson(json)).toList();
     }
     throw StateError(response.body);
   }
