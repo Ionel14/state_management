@@ -18,7 +18,7 @@ class PictureDetails extends StatelessWidget {
           child: Column(
             children: <Widget>[
               CachedNetworkImage(
-                imageUrl: picture.urls.full,
+                imageUrl: picture.urls.regular,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -26,7 +26,7 @@ class PictureDetails extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: CachedNetworkImage(
-                        imageUrl: picture.user.profileImage.large,
+                        imageUrl: picture.user.profileImage.medium,
                         fit: BoxFit.fill,
                       ),
                     ),
